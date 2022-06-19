@@ -11,6 +11,7 @@
   --clr-black: #111;
   ---clr-dark: #333;
   --clr-bright: #f8f8f8;
+  --shadow: 0 5px 10px rgba(51, 51, 51, 0.5);
 }
 
 body {
@@ -40,7 +41,7 @@ nav {
   display: grid;
   place-content: center;
   color: var(--clr-bright);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow);
 }
 
 .nav-center {
@@ -71,4 +72,14 @@ nav .amount {
   font-size: 1.15rem;
   font-weight: bold;
   background-color: var(---clr-dark);
+}
+
+main {
+  min-height: calc(100vh - 4rem);
+  display: grid;
+  place-content: center;
+}
+
+.cart-container {
+  box-shadow: var(--shadow);
 }
