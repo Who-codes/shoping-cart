@@ -4,22 +4,28 @@ import reducer from "./reducer";
 
 const AppContext = React.createContext();
 
-const defaultState = {
+const initialState = {
   cart: data,
   amount: 0,
   total: 0,
 };
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, clearCart }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 
 const useGlobalContext = () => {
-  useContext(AppContext);
+  return useContext(AppContext);
 };
 
 export { AppProvider, useGlobalContext };

@@ -42,6 +42,10 @@ h2 {
   font-size: 1.5rem;
 }
 
+h3 {
+  font-size: 1.25rem;
+}
+
 .btn {
   border: none;
   background-color: transparent;
@@ -100,6 +104,7 @@ main {
 
 .cart-container {
   width: 80vw;
+  min-height: 50vh;
   background-color: var(--clr-bright);
   box-shadow: var(--shadow);
   padding: 0.75rem;
@@ -111,11 +116,17 @@ main {
 }
 
 .cart-container h2 {
-  margin: auto;
+  margin: 0 auto;
+}
+
+.cart-container .empty {
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .clear-btn {
-  width: 60%;
+  width: fit-content;
   margin: auto;
   padding: 0.25rem 0.75rem;
   font-weight: bold;
@@ -183,4 +194,22 @@ section img {
 .amount {
   font-size: 1.25rem;
   cursor: default;
+}
+
+.total-container {
+  font-size: 1.1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.total-content {
+  display: flex;
+  align-items: center;
+}
+
+.total-container hr {
+  margin-bottom: 0.5rem;
+}
+
+.total {
+  margin-left: auto;
 }

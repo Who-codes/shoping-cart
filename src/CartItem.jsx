@@ -1,10 +1,9 @@
 import React from "react";
-import data from "./data";
 
-export default function CartItem() {
+export default function CartItem({ cart }) {
   return (
     <section className="cart-items">
-      {data.map((item) => {
+      {cart.map((item) => {
         const { id, title, price, img: image, amount } = item;
         return (
           <div className="list" key={id}>
