@@ -9,7 +9,11 @@ export default function CartContainer() {
       {cart.length !== 0 ? (
         <div className="cart-container">
           <h2>Your Cart</h2>
-          <CartItem cart={cart} />
+          <section className="cart-items">
+            {cart.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+          </section>
           <div className="total-container">
             <hr />
             <div className="total-content">
