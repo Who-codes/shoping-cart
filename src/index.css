@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -11,11 +13,16 @@
   --clr-black: #111;
   ---clr-dark: #333;
   --clr-bright: #f8f8f8;
+  --clr-blue: #ecf0f4;
+  --clr-safe: #6281a8;
+  --clr-danger: #de7878;
   --shadow: 0 5px 10px rgba(51, 51, 51, 0.5);
+  --border-radius: 5px;
 }
 
 body {
   font-size: 0.8rem;
+  font-family: "Anek Malayalam", sans-serif;
 }
 
 h1,
@@ -33,6 +40,12 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 nav {
@@ -78,8 +91,78 @@ main {
   min-height: calc(100vh - 4rem);
   display: grid;
   place-content: center;
+  padding: 1.5rem 0.5rem;
 }
 
 .cart-container {
+  width: 80vw;
+  background-color: var(--clr-bright);
   box-shadow: var(--shadow);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: var(--border-radius);
+  padding: 1.5rem 0.75rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  background-color: var(--clr-blue);
+}
+
+section img {
+  width: 100px;
+}
+
+.info {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.info .price {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.remove-btn {
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: var(--clr-safe);
+}
+
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+.remove-btn:active {
+  color: var(--clr-danger);
+}
+
+.amount-btn-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.amount-btn svg {
+  height: 2rem;
+}
+
+.amount {
+  font-size: 1.25rem;
+  cursor: default;
 }
