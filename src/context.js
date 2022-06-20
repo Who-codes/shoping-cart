@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import data from "./data";
 import reducer from "./reducer";
 
@@ -24,6 +24,10 @@ const AppProvider = ({ children }) => {
   const toggleAmount = (id, type) => {
     dispatch({ type: "TOGGLE_AMOUNT", payload: { type, id } });
   };
+
+  useEffect(() => {
+    dispatch({ type: "GET_TOTAL" });
+  }, [state.cart]);
 
   return (
     <AppContext.Provider
