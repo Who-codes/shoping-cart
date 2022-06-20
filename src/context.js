@@ -6,9 +6,12 @@ const AppContext = React.createContext();
 
 const initialState = {
   cart: data,
+  loading: false,
   amount: 0,
   total: 0,
 };
+
+const url = "https://course-api.com/react-useReducer-cart-project";
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -24,6 +27,17 @@ const AppProvider = ({ children }) => {
   const toggleAmount = (id, type) => {
     dispatch({ type: "TOGGLE_AMOUNT", payload: { type, id } });
   };
+
+  const fetchData = async () => {
+    dispatch({ type: "LOADING" });
+    const res = await fetch(url);
+    const data = await res.json();
+    dispatch({ type: "DISPLAY_CART", cart: data });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     dispatch({ type: "GET_TOTAL" });
