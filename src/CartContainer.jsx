@@ -7,6 +7,7 @@ export default function CartContainer() {
       <div className="cart-container">
         <h2>Your Cart</h2>
         <CartItem />
+        <button className="btn clear-btn">Clear List</button>
       </div>
     </main>
   );
