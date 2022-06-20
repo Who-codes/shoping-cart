@@ -1,9 +1,21 @@
-import { useContext } from "react";
+import React, { useContext, useReducer } from "react";
+import data from "./data";
+import reducer from "./reducer";
 
 const AppContext = React.createContext();
 
+const defaultState = {
+  cart: data,
+  amount: 0,
+  total: 0,
+};
+
 const AppProvider = ({ children }) => {
-  <AppContext.Provider>{children}</AppContext.Provider>;
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
+  return (
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+  );
 };
 
 const useGlobalContext = () => {
